@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <title>Scrimba | Unit Converter</title>
+</head>
+
+<body>
+    <main class="unit-container">
+        <div class="unit-top-container">
+            <h1 class="heading">
+                Metric/Imperial Unit Conversion
+            </h1>
+
+            <div class="number-to-convert-rectangle">
+                <input type="text" id="number-to-convert"></input>
+            </div>
+
+            <button type="button" class="convertBtn">
+                Convert
+            </button>
+        </div>
+
+        <div class="unit-bottom-container">
+            <div class="length-container">
+                <h2 class="length-heading">Length (Meter/Feet)</h2>
+                <p><span class="input">20</span> meters = <span class="length-feet">65.616</span> feet | <span
+                        class="input">20</span> feet = <span class="length-meters">6.096</span> meters</p>
+            </div>
+
+            <div class="volume-container">
+                <h2 class="length-heading">Volume (Liters/Gallons)</h2>
+                <p><span class="input">20</span> liters = <span class="volume-gallons">5.284</span> gallons | <span
+                        class="input">20</span> gallons = <span class="volume-liters">75.708</span>
+                    liters</p>
+            </div>
+
+            <div class="mass-container">
+                <h2 class="length-heading">Mass (Kilograms/Pounds)</h2>
+                <p><span class="input">20</span> kilos = <span class="mass-pounds">44.092</span> pounds | <span
+                        class="input">20</span> pounds = <span class="mass-kilos">9.072</span>
+                    kilos</p>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
