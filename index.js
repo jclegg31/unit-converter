@@ -22,7 +22,7 @@ const lengthFeetOutput = document.querySelector('.length-feet');
 const lengthMetersOutput = document.querySelector('.length-meters');
 
 const volumeGallonsOuput = document.querySelector('.volume-gallons');
-const volumeLiterssOuput = document.querySelector('.volume-liters');
+const volumeLitersOuput = document.querySelector('.volume-liters');
 
 const massPoundsOutput = document.querySelector('.mass-pounds');
 const massKilosOutput = document.querySelector('.mass-kilos');
@@ -32,6 +32,7 @@ convertBtn.addEventListener('click', function () {
   //check so it's numbers only that can be entered and
   //post a warning if not a number
   if (checkForNumOnly(userInputEl)) {
+    console.log(checkForNumOnly(userInputEl));
     //iterate through NodeList from QuerySelectorAll
     for (let i = 0; i < inputNum.length; i++) {
       //get number from input and plug it into each span as the number
@@ -43,7 +44,7 @@ convertBtn.addEventListener('click', function () {
     lengthFeetOutput.textContent = metersToFeet(userInputEl.value);
     lengthMetersOutput.textContent = feetToMeters(userInputEl.value);
     volumeGallonsOuput.textContent = litersToGallons(userInputEl.value);
-    volumeLiterssOuput.textContent = gallonsToLiters(userInputEl.value);
+    volumeLitersOuput.textContent = gallonsToLiters(userInputEl.value);
     massPoundsOutput.textContent = poundsToKilos(userInputEl.value);
     massKilosOutput.textContent = kilosToPounds(userInputEl.value);
   }
@@ -59,25 +60,25 @@ function checkForNumOnly(userInputEl) {
 }
 
 function metersToFeet(value) {
-  return (metersToFeet = (value * meter).toFixed(3));
+  return (metersToFeetValue = (value * meter).toFixed(3));
 }
 
 function feetToMeters(value) {
-  return (feetToMeters = (value / meter).toFixed(3));
+  return (feetToMetersValue = (value / meter).toFixed(3));
 }
 
 function litersToGallons(value) {
-  return (litersToGallons = (value * liter).toFixed(3));
+  return (litersToGallonsValue = (value * liter).toFixed(3));
 }
 
 function gallonsToLiters(value) {
-  return (gallonsToLiters = (value / liter).toFixed(3));
+  return (gallonsToLitersValue = (value / liter).toFixed(3));
 }
 
 function poundsToKilos(value) {
-  return (poundsToKilos = (value * kilogram).toFixed(3));
+  return (poundsToKilosValue = (value * kilogram).toFixed(3));
 }
 
 function kilosToPounds(value) {
-  return (kilosToPounds = (value / kilogram).toFixed(3));
+  return (kilosToPoundsValue = (value / kilogram).toFixed(3));
 }
