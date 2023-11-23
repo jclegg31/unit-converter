@@ -12,77 +12,72 @@ const kilogram = 2.204;
 const convertBtn = document.querySelector('.convertBtn');
 
 //get input user entered
-let userInputEl = document.getElementById('number-to-convert');
+const userInputEl = document.getElementById('number-to-convert');
 
 //get spans to update with conversions
-let inputNum = document.querySelectorAll('.input');
+const inputNum = document.querySelectorAll('.input');
 //console.log(inputNum);
 
-let lengthFeetOutput = document.querySelector('.length-feet');
-let lengthMetersOutput = document.querySelector('.length-meters');
+const lengthFeetOutput = document.querySelector('.length-feet');
+const lengthMetersOutput = document.querySelector('.length-meters');
 
-let volumeGallonsOuput = document.querySelector('.volume-gallons');
-let volumeLiterssOuput = document.querySelector('.volume-liters');
+const volumeGallonsOuput = document.querySelector('.volume-gallons');
+const volumeLiterssOuput = document.querySelector('.volume-liters');
 
-let massPoundsOutput = document.querySelector('.mass-pounds');
-let massKilosOutput = document.querySelector('.mass-kilos');
+const massPoundsOutput = document.querySelector('.mass-pounds');
+const massKilosOutput = document.querySelector('.mass-kilos');
 
 //add Event listener so when clicked will do conversion
 convertBtn.addEventListener('click', function () {
   //check so it's numbers only that can be entered and
   //post a warning if not a number
-  checkForNumOnly(userInputEl);
+  if (checkForNumOnly(userInputEl)) {
+    //iterate through NodeList from QuerySelectorAll
+    for (let i = 0; i < inputNum.length; i++) {
+      //get number from input and plug it into each span as the number
+      //we are converting
+      inputNum[i].textContent = userInputEl.value;
+    }
 
-  //iterate through NodeList from QuerySelectorAll
-  for (let i = 0; i < inputNum.length; i++) {
-    //get number from input and plug it into each span as the number
-    //we are converting
-    inputNum[i].textContent = userInputEl.value;
+    //take number and do coversions then update DOM
+    lengthFeetOutput.textContent = metersToFeet(userInputEl.value);
+    lengthMetersOutput.textContent = feetToMeters(userInputEl.value);
+    volumeGallonsOuput.textContent = litersToGallons(userInputEl.value);
+    volumeLiterssOuput.textContent = gallonsToLiters(userInputEl.value);
+    massPoundsOutput.textContent = poundsToKilos(userInputEl.value);
+    massKilosOutput.textContent = kilosToPounds(userInputEl.value);
   }
-
-  //take number and do coversions then update DOM
-  metersToFeet();
-  feetToMeters();
-  litersToGallons();
-  gallonsToLiters();
-  poundsToKilos();
-  kilosToPounds();
 });
 
 function checkForNumOnly(userInputEl) {
   if (!isNaN(userInputEl.value)) {
-    return;
+    return true;
   } else {
     alert('Please enter a number');
+    return false;
   }
 }
 
-function metersToFeet() {
-  let metersToFeet = userInputEl.value * meter;
-  lengthFeetOutput.textContent = metersToFeet.toFixed(3);
+function metersToFeet(value) {
+  return (metersToFeet = (value * meter).toFixed(3));
 }
 
-function feetToMeters() {
-  let feetToMeters = userInputEl.value / meter;
-  lengthMetersOutput.textContent = feetToMeters.toFixed(3);
+function feetToMeters(value) {
+  return (feetToMeters = (value / meter).toFixed(3));
 }
 
-function litersToGallons() {
-  let litersToGallons = userInputEl.value * liter;
-  volumeGallonsOuput.textContent = litersToGallons.toFixed(3);
+function litersToGallons(value) {
+  return (litersToGallons = (value * liter).toFixed(3));
 }
 
-function gallonsToLiters() {
-  let gallonsToLiters = userInputEl.value / liter;
-  volumeLiterssOuput.textContent = gallonsToLiters.toFixed(3);
+function gallonsToLiters(value) {
+  return (gallonsToLiters = (value / liter).toFixed(3));
 }
 
-function poundsToKilos() {
-  let poundsToKilos = userInputEl.value * kilogram;
-  massPoundsOutput.textContent = poundsToKilos.toFixed(3);
+function poundsToKilos(value) {
+  return (poundsToKilos = (value * kilogram).toFixed(3));
 }
 
-function kilosToPounds() {
-  let kilosToPounds = userInputEl.value / kilogram;
-  massKilosOutput.textContent = kilosToPounds.toFixed(3);
+function kilosToPounds(value) {
+  return (kilosToPounds = (value / kilogram).toFixed(3));
 }

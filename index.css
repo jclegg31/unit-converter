@@ -77,6 +77,12 @@ body {
   height: 42px;
   margin-top: 25px;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.convertBtn:hover {
+  background-color: #ccc1ff;
+  color: #6943ff;
 }
 
 .unit-bottom-container {
